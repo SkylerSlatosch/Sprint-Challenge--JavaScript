@@ -15,20 +15,41 @@
 // Using your dinosaur objects, log answers to these questions:
 
 // How much did tyrannosaurus weigh?
-console.log();
+const tyrannosaurus = {
+  weight: "7000kg"
+}
+
+console.log(tyrannosaurus);
 
 // What was the diet of a velociraptor?
-console.log();
+const velociraptor = {
+  diet: "carnivorous"
+}
+console.log(velociraptor);
 
 // How long was a stegosaurus?
-console.log();
+const stegosaurus = {
+  length: "9m"
+}
+console.log(stegosaurus);
 
 // What time period did tyrannosaurus live in?
-console.log();
+const tyrannosaurusTimePeriod = {
+  "Time Period": "Late Cretaceous"
+}
+console.log(tyrannosaurusTimePeriod[`Time Period`]);
+
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
-console.log();
+const tyrannosaurusSpeak = {
+    name: 'Tyrannosaurus',
+   species: 'Dinosaur',
+  favFood: 'other animals',
+   roar: 'RAWERSRARARWERSARARARRRR!'
+   
+  }
+console.log(tyrannosaurusSpeak.roar);
 
 
 // ==== Arrays ====
@@ -36,36 +57,101 @@ console.log();
 // Given an array of college graduates.  Complete the following requests using any array method you like
 
 const graduates = [
-  { id: 1, first_name: "Cynde", university: "Missouri Southern State College", email: "ctorry0@macromedia.com" },
-  { id: 2, first_name: "Saundra", university: "The School of the Art Institute of Chicago", email: "swhal1@state.gov" },
-  { id: 3, first_name: "Lambert", university: "Marian College", email: "lparham2@techcrunch.com" },
-  { id: 4, first_name: "Modestine", university: "International Medical & Technological University", email: "mdolder3@symantec.com" },
-  { id: 5, first_name: "Chick", university: "Sultan Salahuddin Abdul Aziz Shah Polytechnic", email: "camorts4@google.com.au" },
-  { id: 6, first_name: "Jakob", university: "Fachhochschule Rosenheim, Hochschule für Technik und Wirtschaft", email: "jharken5@spiegel.de" },
-  { id: 7, first_name: "Robbi", university: "Salem University", email: "rbrister6@redcross.org" },
-  { id: 8, first_name: "Colline", university: "Coastal Carolina University", email: "cbrosh7@alibaba.com" },
-  { id: 9, first_name: "Michail", university: "Universidad Católica de Ávila", email: "mrome8@shinystat.com" },
-  { id: 10, first_name: "Hube", university: "Universitat Rovira I Virgili Tarragona", email: "hlethbrig9@foxnews.com" },
+  {
+    id: 1,
+    first_name: "Cynde",
+    university: "Missouri Southern State College",
+    email: "ctorry0@macromedia.com"
+  },
+  {
+    id: 2,
+    first_name: "Saundra",
+    university: "The School of the Art Institute of Chicago",
+    email: "swhal1@state.gov"
+  },
+  {
+    id: 3,
+    first_name: "Lambert",
+    university: "Marian College",
+    email: "lparham2@techcrunch.com"
+  },
+  {
+    id: 4,
+    first_name: "Modestine",
+    university: "International Medical & Technological University",
+    email: "mdolder3@symantec.com"
+  },
+  {
+    id: 5,
+    first_name: "Chick",
+    university: "Sultan Salahuddin Abdul Aziz Shah Polytechnic",
+    email: "camorts4@google.com.au"
+  },
+  {
+    id: 6,
+    first_name: "Jakob",
+    university:
+      "Fachhochschule Rosenheim, Hochschule für Technik und Wirtschaft",
+    email: "jharken5@spiegel.de"
+  },
+  {
+    id: 7,
+    first_name: "Robbi",
+    university: "Salem University",
+    email: "rbrister6@redcross.org"
+  },
+  {
+    id: 8,
+    first_name: "Colline",
+    university: "Coastal Carolina University",
+    email: "cbrosh7@alibaba.com"
+  },
+  {
+    id: 9,
+    first_name: "Michail",
+    university: "Universidad Católica de Ávila",
+    email: "mrome8@shinystat.com"
+  },
+  {
+    id: 10,
+    first_name: "Hube",
+    university: "Universitat Rovira I Virgili Tarragona",
+    email: "hlethbrig9@foxnews.com"
+  }
 ];
 
 /* Request 1: Create a new array called universities that contains all the universities in the graduates array. This will be an array of strings.
-
 Once you have the new array created, sort the universities alphabetically and log the result. */
+
 const universities = [];
+for (let i = 0; i < graduates.length; i++) {
+  universities.push(graduates[i].university);
+  universities.sort();
+}
 console.log(universities);
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. This will be an array of strings.
-
 The resulting contact information strings should have a space between the first name and the email, like this: 
 "Josh josh@example.com"
-
 Log the result of your new array. */
+
 const contactInfo = [];
+for (let i = 0; i < graduates.length; i++) {
+  contactInfo.push(`${graduates[i].first_name} ${graduates[i].email}`);
+}
+
 console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
-const unisWithUni = [];
-console.log(unisWithUni);
+
+const uni = [];
+for (let i = 0; i < graduates.length; i++) {
+  if (graduates[i].university.includes("Uni")) {
+    uni.push(graduates[i].university);
+  }
+}
+
+console.log(uni);
 
 
 // ==== ADVANCED Array Methods ====
@@ -90,8 +176,16 @@ const zooAnimals = [
 The zoos want to display both the scientific name and the animal name in front of the habitats. Populate the displayNames array with only the animal_name and scientific_name of each animal. displayNames will be an array of strings, and each string should follow this pattern: "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
-const displayNames = [];
-console.log(displayNames);
+const animalNames = [];
+zooAnimals.forEach(function(currentValue) {
+  animalNames.push(
+    `Name: ${currentValue.animal_name}, scientific: ${
+      currentValue.scientific_name
+    }.`
+  );
+});
+
+console.log(animalNames);
 
 /* Request 2: .map()
 
@@ -99,23 +193,29 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 
-const lowCaseAnimalNames = [];
-console.log(lowCaseAnimalNames);
+const lowerCase = zooAnimals.map(function(currentValue) {
+  return currentValue.animal_name.toLowerCase();
+});
+console.log(lowerCase);
 
 /* Request 3: .filter() 
 
 The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
-const lowPopulationAnimals = [];
-console.log(lowPopulationAnimals);
+const largerPopulation = zooAnimals.filter(function(currentValue) {
+  return currentValue.population < 5;
+});
+console.log(largerPopulation);
 
 /* Request 4: .reduce() 
 
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = 0;
+const populationTotal = zooAnimals.reduce(function(it, array) {
+  return it + array.population;
+}, 0);
 console.log(populationTotal);
 
 
@@ -124,4 +224,3 @@ console.log(populationTotal);
 Stretch: If you haven't already, convert your array method callbacks into arrow functions.
 
 */
-
